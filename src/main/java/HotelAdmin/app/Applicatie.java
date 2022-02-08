@@ -66,7 +66,7 @@ public class Applicatie {
 //        billingView.registerBill();
 //
 
-
+//
 //        Scanner scanner = new Scanner(System.in);
 //        RoomFactory roomFactory = new RoomFactory();
 //        System.out.println("Test");
