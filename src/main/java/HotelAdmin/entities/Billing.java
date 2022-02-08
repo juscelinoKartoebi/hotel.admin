@@ -1,6 +1,7 @@
 package HotelAdmin.entities;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -13,10 +14,17 @@ public class Billing {
     @Column(name = "room_charge")
     private Double roomCharge;
     @Column(name = "payment_date")
-    private Date paymentDate;
+    private LocalDate paymentDate;
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn (name = "guest_id")
     private Guest guest;
+
+    public Billing(Double roomCharge, LocalDate paymentDate) {
+        this.roomCharge = roomCharge;
+        this.paymentDate = paymentDate;
+    }
+    public Billing() {
+    }
 
     public Long getBillingNumber() {
         return billingNumber;
@@ -30,10 +38,10 @@ public class Billing {
     public void setRoomCharge(Double roomCharge) {
         this.roomCharge = roomCharge;
     }
-    public Date getPaymentDate() {
+    public LocalDate getPaymentDate() {
         return paymentDate;
     }
-    public void setPaymentDate(Date paymentDate) {
+    public void setPaymentDate(LocalDate paymentDate) {
         this.paymentDate = paymentDate;
     }
     public Guest getGuest() {
@@ -42,4 +50,14 @@ public class Billing {
     public void setGuest(Guest guest) {
         this.guest = guest;
     }
+
+    @Override
+    public String toString() {
+        return "Billing{" +
+                "roomCharge=" + roomCharge +
+                ", paymentDate=" + paymentDate +
+                ", guest=" + guest +
+                '}';
+    }
 }
+

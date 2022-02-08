@@ -1,70 +1,82 @@
 package HotelAdmin.app;
 
 import HotelAdmin.Configurations.JpaConfiguratie;
-import HotelAdmin.Dao.BookingDao;
-import HotelAdmin.Dao.EmployeeDao;
-import HotelAdmin.Dao.EmployeeRoleDao;
-import HotelAdmin.Dao.GuestDao;
+import HotelAdmin.Dao.*;
 import HotelAdmin.Services.*;
-import HotelAdmin.designpatterns.chainOfResponsibility.Verlof;
-import HotelAdmin.designpatterns.chainOfResponsibility.VerlofChain;
 import HotelAdmin.designpatterns.decorator.Candy;
 import HotelAdmin.designpatterns.decorator.ChristmasSpecial;
 import HotelAdmin.designpatterns.decorator.ChristmasTree;
 import HotelAdmin.designpatterns.decorator.RoomType;
+import HotelAdmin.designpatterns.factorypattern.ConnectingRooms;
+import HotelAdmin.designpatterns.factorypattern.LuxuriousRoom;
+import HotelAdmin.designpatterns.factorypattern.RoomFactory;
+import HotelAdmin.designpatterns.factorypattern.StandardHotelRoom;
 import HotelAdmin.entities.Employee;
-import HotelAdmin.views.BookingView;
-import HotelAdmin.views.EmployeeRoleView;
-import HotelAdmin.views.EmployeeView;
-import HotelAdmin.views.GuestView;
+import HotelAdmin.entities.HotelInfo;
+import HotelAdmin.views.*;
 
-import java.time.LocalDate;
 import java.util.Scanner;
 
 public class Applicatie {
     public static void main(String[] args) {
+        BookingDao bookingDao = new BookingDao(JpaConfiguratie.getEntityManager());
+        BookingService bookingService = new BookingServiceImpl(bookingDao);
+        EmployeeDao employeeDao = new EmployeeDao(JpaConfiguratie.getEntityManager());
+        EmployeeService service = new EmployeeServiceImpl(employeeDao);
+        GuestDao guestDao = new GuestDao(JpaConfiguratie.getEntityManager());
+        GuestService guestService = new GuestServiceImpl(guestDao);
+        EmployeeRoleDao employeeRoleDao = new EmployeeRoleDao(JpaConfiguratie.getEntityManager());
+        EmployeeRoleService roleService = new EmployeeRoleServiceImpl(employeeRoleDao);
+        BillingDao billingDao = new BillingDao(JpaConfiguratie.getEntityManager());
+        BillingService billingService = new BillingServiceImpl(billingDao);
+        HotelInfoDao hotelInfoDao = new HotelInfoDao(JpaConfiguratie.getEntityManager());
+        HotelInfoService hotelInfoService = new HotelInfoServiceImpl(hotelInfoDao);
 
         Applicatie app = new Applicatie();
         Employee employee = new Employee();
+
         RoomType room = new ChristmasSpecial();
         RoomType christmas = new ChristmasTree(room);
         RoomType halloween = new Candy(room);
 
-        //Employee
-        EmployeeDao employeeDao = new EmployeeDao(JpaConfiguratie.getEntityManager());
-        EmployeeService service = new EmployeeServiceImpl(employeeDao);
-        EmployeeView employeeView = new EmployeeView(service);
+//        Employee
+        EmployeeView employeeView = new EmployeeView(service, hotelInfoService, roleService);
 //        employeeView.registerEmployee();
 //        employeeView.findEmployeeUsingNameAndLastName();
 //        employeeView.deleteEmployee();
+//        employeeView.updateEmpl();
 
-        //EmployeeRole
-        EmployeeRoleDao employeeRoleDao = new EmployeeRoleDao(JpaConfiguratie.getEntityManager());
-        EmployeeRoleService roleService = new EmployeeRoleServiceImpl(employeeRoleDao);
+//        EmployeeRole
         EmployeeRoleView employeeRoleView = new EmployeeRoleView(roleService);
 //        employeeRoleView.insertRole();
 
-        //Booking
-        BookingDao bookingDao = new BookingDao(JpaConfiguratie.getEntityManager());
-        BookingService bookingService = new BookingServiceImpl(bookingDao);
-        BookingView bookingView = new BookingView(bookingService);
+//        Booking
+        BookingView bookingView = new BookingView(bookingService, guestService);
 //        bookingView.registerBooking();
 //        bookingView.findbooking();
 
-        //Guest
-        GuestDao guestDao = new GuestDao(JpaConfiguratie.getEntityManager());
-        GuestService guestService = new GuestServiceImpl(guestDao);
+//        Guest
         GuestView guestView = new GuestView(guestService);
 //        guestView.registerGuest();
 //        guestView.findEmployeeUsingNameAndLastName();
-        guestView.deleteGuest();
+//        guestView.deleteGuest();
+
+//        Bill
+        BillingView billingView = new BillingView(billingService);
+//        billingView.registerBill();
+//
+
+
+//        Scanner scanner = new Scanner(System.in);
+//        RoomFactory roomFactory = new RoomFactory();
+//        System.out.println("Test");
+//        String input = scanner.next();
+//         roomFactory.getPackage(input).loadRoomPackage();
 
 
 
-
-//        System.out.println(christmas.getDescription() +
-//                " $" + christmas.cost());
-
+        System.out.println(christmas.getDescription() +
+                " $" + christmas.cost());
         //        app.factoryPattern();
 
 //        Delete

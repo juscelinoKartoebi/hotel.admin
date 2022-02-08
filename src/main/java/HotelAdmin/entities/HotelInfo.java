@@ -38,7 +38,6 @@ public class HotelInfo {
     public HotelInfo(Long hotelId) {
         this.hotelId = hotelId;
     }
-
     public Long getHotelId() {
         return hotelId;
     }

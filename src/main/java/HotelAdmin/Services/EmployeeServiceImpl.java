@@ -18,14 +18,14 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     @Override
-    public Employee insertEmployee(String name, String lastName, String phone, String adress) {
+    public Employee insertEmployee(String name, String lastName, String phone, String adress, EmployeeRole employeeRole, HotelInfo hotelInfo) {
 
         Employee employee = new Employee(name,
                 lastName,
                 phone,
                 adress,
-                new HotelInfo(1L),
-                new EmployeeRole(1L));
+                hotelInfo,
+               employeeRole);
         Employee savedEmployee = employeeDao.insert(employee);
         return savedEmployee;
 
@@ -36,5 +36,11 @@ public class EmployeeServiceImpl implements EmployeeService {
         Employee foundDeletedEmployee = employeeDao.findByEmplNameAndLastName(name, lastName);
         int totalRecordsDeleted = employeeDao.delete(name, lastName);
         return totalRecordsDeleted;
+    }
+
+    @Override
+    public Employee updateEmpl(Employee employee) {
+        Employee empl = employeeDao.updateEmployee(employee);
+        return empl;
     }
 }

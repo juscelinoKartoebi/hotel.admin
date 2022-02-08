@@ -1,17 +1,20 @@
 package HotelAdmin.views;
 
 import HotelAdmin.Services.BookingService;
+import HotelAdmin.Services.GuestService;
 import HotelAdmin.entities.Booking;
-import HotelAdmin.entities.Employee;
+import HotelAdmin.entities.Guest;
 
 import java.time.LocalDate;
 import java.util.Scanner;
 
 public class BookingView {
     private final BookingService bookingService;
+    private final GuestService guestService;
 
-    public BookingView(BookingService bookingService) {
+    public BookingView(BookingService bookingService, GuestService guestService) {
         this.bookingService = bookingService;
+        this.guestService = guestService;
     }
     public void registerBooking(){
         try (Scanner scanner = new Scanner(System.in)) {
@@ -23,14 +26,17 @@ public class BookingView {
             String status = scanner.next();
             System.out.println("Please enter number of guests");
             int numberOfGuest = Integer.parseInt(scanner.next());
-            System.out.println("Please enter current date");
-            LocalDate bookingDate = LocalDate.parse(scanner.next());
+
+            System.out.println("Please enter lastname");
+            String lastName = scanner.next();
+            System.out.println("Please enter name");
+            String name = scanner.next();
+            Guest guest = guestService.findGuest(name, lastName);
 
             Booking insertedBooking = bookingService.insertBooking(checkInDate,
                     checkOutDate,
                     status,
-                    numberOfGuest,
-                    bookingDate);
+                    numberOfGuest, guest);
             System.out.println(insertedBooking);
 
         } catch (Exception e) {

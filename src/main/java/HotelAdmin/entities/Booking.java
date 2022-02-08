@@ -33,6 +33,15 @@ public class Booking {
         this.bookingDate = bookingDate;
     }
 
+    public Booking(LocalDate checkInDate, LocalDate checkOutDate, String status, int numberOfGuest, LocalDate bookingDate, Guest guestId) {
+        this.checkInDate = checkInDate;
+        this.checkOutDate = checkOutDate;
+        Status = status;
+        this.numberOfGuest = numberOfGuest;
+        this.bookingDate = bookingDate;
+        this.guestId = guestId;
+    }
+
     public Booking() {
     }
 

@@ -2,6 +2,7 @@ package HotelAdmin.Services;
 
 import HotelAdmin.Dao.BookingDao;
 import HotelAdmin.entities.Booking;
+import HotelAdmin.entities.Guest;
 
 import java.time.LocalDate;
 
@@ -12,12 +13,13 @@ public class BookingServiceImpl implements BookingService {
         this.bookingDao = bookingDao;
     }
     @Override
-    public Booking insertBooking(LocalDate checkInDate, LocalDate checkOutDate, String status, int numberOfGuest, LocalDate bookingDate) {
+    public Booking insertBooking(LocalDate checkInDate, LocalDate checkOutDate, String status, int numberOfGuest, Guest guest) {
         Booking booking = new Booking(checkInDate,
                 checkOutDate,
                 status,
                 numberOfGuest,
-                bookingDate);
+                LocalDate.now(),
+                guest);
         Booking savedBooking = bookingDao.insert(booking);
         return savedBooking;
     }

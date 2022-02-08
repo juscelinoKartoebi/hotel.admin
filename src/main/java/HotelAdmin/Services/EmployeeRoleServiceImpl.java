@@ -22,10 +22,5 @@ public class EmployeeRoleServiceImpl implements EmployeeRoleService {
     @Override
     public List<EmployeeRole> retrieveList() {
         List<EmployeeRole> employeeRoleList = employeeRoleDao.retrieveListOfRoles();
-        employeeRoleList.stream().forEach(System.out::println);
-        for (EmployeeRole role : employeeRoleList) {
-        return employeeRoleList;
-
-    }
         return employeeRoleList;
     }}

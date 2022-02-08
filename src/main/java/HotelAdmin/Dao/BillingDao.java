@@ -1,17 +1,15 @@
 package HotelAdmin.Dao;
 
 import HotelAdmin.entities.Billing;
-import HotelAdmin.entities.Booking;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
-import java.util.Date;
 
-public class BilingDao {
+public class BillingDao {
     private EntityManager entityManager;
 
-    public BilingDao(EntityManager entityManager) {
+    public BillingDao(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
 

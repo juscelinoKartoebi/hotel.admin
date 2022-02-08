@@ -27,6 +27,17 @@ public class Room {
     joinColumns = {@JoinColumn(name = "room_number")}, inverseJoinColumns = {@JoinColumn (name = "booking_number")})
     private Set<Booking> booking;
 
+    public Room(String roomType, String roomLocation, HotelInfo hotelInfo, Set<Booking> booking) {
+        this.roomType = roomType;
+        this.roomLocation = roomLocation;
+        this.numberOfBeds = numberOfBeds;
+        this.hotelInfo = hotelInfo;
+        this.booking = booking;
+    }
+
+    public Room() {
+    }
+
     public Long getRoomNumber() {
         return roomNumber;
     }
@@ -56,5 +67,16 @@ public class Room {
     }
     public void setHotelId(HotelInfo hotelInfo) {
         this.hotelInfo = hotelInfo;
+    }
+
+    @Override
+    public String toString() {
+        return "Room{" +
+                "roomType='" + roomType + '\'' +
+                ", roomLocation='" + roomLocation + '\'' +
+                ", numberOfBeds=" + numberOfBeds +
+                ", hotelInfo=" + hotelInfo +
+                ", booking=" + booking +
+                '}';
     }
 }

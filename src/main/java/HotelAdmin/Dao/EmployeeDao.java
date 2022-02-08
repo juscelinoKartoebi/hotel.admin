@@ -1,6 +1,7 @@
 package HotelAdmin.Dao;
 
 import HotelAdmin.entities.Employee;
+import HotelAdmin.entities.HotelInfo;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
@@ -13,23 +14,26 @@ public class EmployeeDao {
     public EmployeeDao(EntityManager entityManager) {
         this.entityManager = entityManager;
     }
+
     public Employee findByEmplNameAndLastName(String name, String lastName) {
         entityManager.getTransaction().begin();
         String jpql = "select e from Employee e  where e.name = :name and e.lastName = :lastName";
         TypedQuery<Employee> query = entityManager.createQuery(jpql, Employee.class);
         Employee employee = query.
                 setParameter("name", name)
-                .setParameter("lastName",lastName)
+                .setParameter("lastName", lastName)
                 .getSingleResult();
         entityManager.getTransaction().commit();
         return employee;
     }
+
     public Employee insert(Employee employee) {
         entityManager.getTransaction().begin();
         entityManager.persist(employee);
         entityManager.getTransaction().commit();
         return employee;
     }
+
     public int delete(String name, String lastName) {
         entityManager.getTransaction().begin();
         Query query = entityManager.createQuery("delete from Employee e where e.name = :name and e.lastName = :lastName ");
@@ -40,22 +44,30 @@ public class EmployeeDao {
         entityManager.getTransaction().commit();
         return rowsDeleted;
     }
-//    public List<Employee> retrieveEmployeeList() {
-//        entityManager.getTransaction().begin();
-//        String jpql = "select e from Employee e";
-//        TypedQuery<Employee> query = entityM                                                          anager.createQuery(jpql, Employee.class);
-//        List<Employee> employeeListList = query.getResultList();
-//        entityManager.getTransaction().commit();
-//        return employeeListList;
-//    }
-    public int updateEmployee (Employee employee) {
+
+    public List<Employee> retrieveEmployeeList() {
         entityManager.getTransaction().begin();
-        Query query = entityManager.createQuery("update Employee e set e.name = :name where e.emplId = :emplId");
-        query.setParameter("emplId", employee.getEmplId());
-        query.setParameter("name", employee.getName());
-        int rowsupdated = query.executeUpdate();
-        System.out.println("entities updated: " + rowsupdated);
+        String jpql = "select e from Employee e";
+        TypedQuery<Employee> query = entityManager.createQuery(jpql, Employee.class);
+        List<Employee> employeeListList = query.getResultList();
         entityManager.getTransaction().commit();
-        return rowsupdated;
+        return employeeListList;
+    }
+
+    //    public int updateEmployee (Employee employee) {
+//        entityManager.getTransaction().begin();
+//        Query query = entityManager.createQuery("update Employee e set e.name = :name where e.emplId = :emplId");
+//        query.setParameter("emplId", employee.getEmplId());
+//        query.setParameter("name", employee.getName());
+//        int rowsupdated = query.executeUpdate();
+//        System.out.println("entities updated: " + rowsupdated);
+//        entityManager.getTransaction().commit();
+//        return rowsupdated;
+//    }
+    public Employee updateEmployee(Employee employee) {
+        entityManager.getTransaction().begin();
+        Employee empl = entityManager.merge(employee);
+        entityManager.getTransaction().commit();
+        return empl;
     }
 }
