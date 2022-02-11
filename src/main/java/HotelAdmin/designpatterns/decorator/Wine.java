@@ -6,7 +6,7 @@ public class Wine extends RoomDecorator{
         this.roomType = roomType;
     }
     public String getDescription() {
-        return roomType.getDescription() + ", wine";
+        return roomType.getDescription() + " + wine";
     }
     public double cost() {
         return roomType.cost() + 15;

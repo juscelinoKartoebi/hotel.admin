@@ -47,13 +47,12 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking{" +
-                "checkInDate=" + checkInDate +
-                ", checkOutDate=" + checkOutDate +
-                ", Status='" + Status + '\'' +
-                ", numberOfGuest=" + numberOfGuest +
-                ", bookingDate=" + bookingDate +
-                ", guestId=" + guestId +
-                '}';
+        return "Booking: " +
+                "\n \t checkInDate = " + checkInDate +
+                "\n \t checkOutDate = " + checkOutDate +
+                "\n \t Status = " + Status +
+                "\n \t numberOfGuest = " + numberOfGuest +
+                "\n \t bookingDate = " + bookingDate +
+                "\n \t guestId = " + guestId;
     }
 }

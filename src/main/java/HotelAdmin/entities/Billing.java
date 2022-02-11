@@ -53,11 +53,10 @@ public class Billing {
 
     @Override
     public String toString() {
-        return "Billing{" +
-                "roomCharge=" + roomCharge +
-                ", paymentDate=" + paymentDate +
-                ", guest=" + guest +
-                '}';
+        return "Billing: " +
+                "\n \t roomCharge = " + roomCharge +
+                "\n \t paymentDate = " + paymentDate +
+                "\n \t guest = " + guest;
     }
 }
 

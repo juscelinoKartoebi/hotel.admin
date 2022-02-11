@@ -40,49 +40,58 @@ public class Employee {
     public Long getEmplId() {
         return emplId;
     }
+
     public void setEmplId(Long emplId) {
         this.emplId = emplId;
     }
+
     public String getName() {
         return name;
     }
+
     public void setName(String name) {
         this.name = name;
     }
+
     public String getLastName() {
         return lastName;
     }
+
     public void setLastName(String lastName) {
         this.lastName = lastName;
     }
+
     public String getPhone() {
         return phone;
     }
+
     public void setPhone(String phone) {
         this.phone = phone;
     }
+
     public String getAdress() {
         return adress;
     }
+
     public void setAdress(String adress) {
         this.adress = adress;
     }
+
     public HotelInfo getHotelInfo() {
         return hotelInfo;
     }
+
     public void setHotelId(HotelInfo hotelId) {
         this.hotelInfo = hotelInfo;
     }
 
     @Override
     public String toString() {
-        return "Employee{" +
-                "name='" + name + '\'' +
-                "\n, lastName='" + lastName + '\'' +
-                "\n, phone='" + phone + '\'' +
-                "\n, adress='" + adress + '\'' +
-                "\n, hotelInfo=" + hotelInfo +
-                "\n, employeeRole=" + employeeRole +
-                '}';
+        return "Employee info:" +
+                "\n \t name = " + name +
+                "\n \t lastName = " + lastName +
+                "\n \t phone = " + phone +
+                "\n \t adress = " + adress + "\n\n" + hotelInfo +
+                "\n\n" + employeeRole;
     }
 }

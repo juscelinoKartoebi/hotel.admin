@@ -6,7 +6,7 @@ public class ChristmasTree extends  RoomDecorator{
         this.roomType = roomType;
     }
     public String getDescription() {
-        return roomType.getDescription() + ", christmas tree";
+        return roomType.getDescription() + " + christmas tree";
     }
 
     public double cost() {

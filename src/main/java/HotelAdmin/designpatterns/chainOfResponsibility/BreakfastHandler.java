@@ -6,7 +6,7 @@ public class BreakfastHandler implements MealHandler {
     private MealHandler nextMealHandler;
 
     @Override
-    public void setNextVerlofHandler(MealHandler nextVerlofHandler) {
+    public void setNextMealHandler(MealHandler nextVerlofHandler) {
         this.nextMealHandler = nextVerlofHandler;
     }
 
@@ -16,12 +16,10 @@ public class BreakfastHandler implements MealHandler {
             System.out.println("Er is geen valide meal type doorgegeven.");
             return;
         }
-
         if (BREAKFAST.equals(meal.getMealType())) {
             //handel de verlof aanvraag af
 //            meal.setGoedgekeurd(true);
             System.out.println("Ingredienten: " + meal.getDescription());
-            System.out.println("Smakelijk eten!");
         } else {
             this.nextMealHandler.process(meal);
         }

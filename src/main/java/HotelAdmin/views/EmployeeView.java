@@ -68,9 +68,9 @@ public class EmployeeView {
 
     public void findEmployeeUsingNameAndLastName() {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Please enter your name");
+            System.out.print("Please enter your name: ");
             String name = scanner.next();
-            System.out.println("Please enter your last name");
+            System.out.print("Please enter your last name: ");
             String lastName = scanner.next();
 
             Employee employeeByNameAndLastName = employeeService.findEmployeeByNameAndLastName(name, lastName);

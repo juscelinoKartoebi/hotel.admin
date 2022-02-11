@@ -19,7 +19,7 @@ public class Meal {
         return mealType;
     }
 
-    public void setMealType(String verlofType) {
+    public void setMealType(String mealType) {
         this.mealType = mealType;
     }
 

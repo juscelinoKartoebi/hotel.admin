@@ -3,8 +3,16 @@ package HotelAdmin.designpatterns.factorypattern;
 public class ConnectingRooms implements RoomPackage {
     @Override
     public void loadRoomPackage() {
-        System.out.println("Welcome to your hotel room");
-        System.out.println("This room is connected with another room downstairs");
-        System.out.println("More room for activities!!");
+        System.out.println("Room connected with other rooms");
+    }
+
+    @Override
+    public String valuta() {
+        return null;
+    }
+
+    @Override
+    public String priceOfRoom() {
+        return "$100";
     }
 }

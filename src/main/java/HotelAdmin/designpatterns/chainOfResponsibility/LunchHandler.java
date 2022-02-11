@@ -7,22 +7,20 @@ public class LunchHandler implements MealHandler {
         private MealHandler mealHandler;
 
         @Override
-        public void setNextVerlofHandler(MealHandler nextVerlofHandler) {
-            this.mealHandler = nextVerlofHandler;
+        public void setNextMealHandler(MealHandler nextMealHandler) {
+            this.mealHandler = nextMealHandler;
         }
-
-        public void process(Meal verlof) {
-            if (verlof == null || verlof.getMealType() == null || verlof.getDescription()  == null) {
-                System.out.println("Er is geen valide verlof type doorgegeven.");
+        public void process(Meal meal) {
+            if (meal == null || meal.getMealType() == null || meal.getDescription()  == null) {
+                System.out.println("Er is geen valide meal type doorgegeven.");
                 return;
             }
-
-            if (LUNCH.equals(verlof.getMealType())) {
+            if (LUNCH.equals(meal.getMealType())) {
                 //handel de verlof aanvraag af
-//                verlof.setGoedgekeurd(true);
-                System.out.println("Het " + LUNCH+ " is goedgekeurd!");
+//                meal.setGoedgekeurd(true);
+                System.out.println("Your " + LUNCH + " is getting prepared!");
             } else {
-                this.mealHandler.process(verlof);
+                this.mealHandler.process(meal);
             }
         }
 }

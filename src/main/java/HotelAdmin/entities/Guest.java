@@ -70,11 +70,10 @@ public class Guest {
 
     @Override
     public String toString() {
-        return "Guest{" +
-                "name='" + name + '\'' +
-                ", lastName='" + lastName + '\'' +
-                ", phone='" + phone + '\'' +
-                ", adress='" + adress + '\'' +
-                '}';
+        return "Guest: " +
+                "\n \t name = " + name +
+                "\n \t lastName = " + lastName +
+                "\n \t phone = " + phone +
+                "\n \t adress = " + adress;
     }
 }

@@ -80,11 +80,10 @@ public class HotelInfo {
 
     @Override
     public String toString() {
-        return "HotelInfo{" +
-                "\nhotelName='" + hotelName + '\'' +
-                "\n, adress='" + adress + '\'' +
-                "\n, phone='" + phone + '\'' +
-                "\n, email='" + email + '\'' +
-                '}';
+        return "Hotel info: " +
+                "\n \t hotelName = " + hotelName +
+                "\n \t adress = " + adress +
+                "\n \t phone = " + phone +
+                "\n \t email = " + email;
     }
 }

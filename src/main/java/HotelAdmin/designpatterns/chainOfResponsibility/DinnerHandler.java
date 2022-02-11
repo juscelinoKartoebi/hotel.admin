@@ -6,7 +6,7 @@ public class DinnerHandler implements MealHandler {
     private MealHandler mealHandler;
 
     @Override
-    public void setNextVerlofHandler(MealHandler nextVerlofHandler) {
+    public void setNextMealHandler(MealHandler nextVerlofHandler) {
         this.mealHandler = nextVerlofHandler;
     }
 
@@ -20,7 +20,7 @@ public class DinnerHandler implements MealHandler {
         if (DINNER.equals(meal.getMealType())) {
             //handel de meal aanvraag af
 //            meal.setGoedgekeurd(true);
-            System.out.println("Het " + DINNER + " is goedgekeurd!");
+            System.out.println("Your " + DINNER + " is getting cooked!");
         } else {
             this.mealHandler.process(meal);
         }

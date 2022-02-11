@@ -6,7 +6,7 @@ public class Candy extends RoomDecorator {
         this.roomType = roomType;
     }
     public String getDescription() {
-        return roomType.getDescription() + ", bowl of candy";
+        return roomType.getDescription() + " + bowl of candy";
     }
     public double cost() {
         return roomType.cost() + 10;

@@ -34,4 +34,5 @@ public class RoomBooking {
 //    public void setBookinNumber(Booking bookinNumber) {
 //        this.bookinNumber = bookinNumber;
 //    }
+
 }
