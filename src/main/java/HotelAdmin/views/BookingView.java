@@ -27,10 +27,10 @@ public class BookingView {
             System.out.println("Please enter number of guests");
             int numberOfGuest = Integer.parseInt(scanner.next());
 
-            System.out.println("Please enter lastname");
-            String lastName = scanner.next();
             System.out.println("Please enter name");
             String name = scanner.next();
+            System.out.println("Please enter lastname");
+            String lastName = scanner.next();
             Guest guest = guestService.findGuest(name, lastName);
 
             Booking insertedBooking = bookingService.insertBooking(checkInDate,

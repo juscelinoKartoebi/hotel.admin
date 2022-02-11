@@ -20,16 +20,17 @@ import java.util.Scanner;
 public class Applicatie {
     public static void main(String[] args) {
 
-        Applicatie app = new Applicatie();
-        Employee employee = new Employee();
-
-        RoomType room = new ChristmasSpecial();
-        RoomType christmas = new ChristmasTree(room);
-        RoomType halloween = new Candy(room);
-
 //        CrudHandelingen
         CrudView crudView = new CrudView();
         crudView.crudHandelingen();
+
+//        Applicatie app = new Applicatie();
+//        Employee employee = new Employee();
+
+//        DecoratorInstances
+        RoomType room = new ChristmasSpecial();
+        RoomType christmas = new ChristmasTree(room);
+        RoomType halloween = new Candy(room);
 
 //        FactoryPattern
 //        Scanner scanner = new Scanner(System.in);

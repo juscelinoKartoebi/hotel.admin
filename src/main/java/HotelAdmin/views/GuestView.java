@@ -17,7 +17,7 @@ public class GuestView {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter guest name");
             String name = scanner.next();
-            System.out.println("Please enter guest last name");
+            System.out.println("Please enter guest lastname");
             String lastName = scanner.next();
             System.out.println("Please enter guest phone number");
             String phone = scanner.next();
@@ -35,7 +35,7 @@ public class GuestView {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter guest name");
             String name = scanner.next();
-            System.out.println("Please enter guest last name");
+            System.out.println("Please enter guest lastname");
             String lastName = scanner.next();
 
             Guest guestByNameAndLastName = guestService.findGuest(name, lastName);
@@ -49,7 +49,7 @@ public class GuestView {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter guest name");
             String name = scanner.next();
-            System.out.println("Please enter guest last name");
+            System.out.println("Please enter guest lastname");
             String lastName = scanner.next();
 
             Guest guestByNameAndLastName = guestService.deleteGuest(name, lastName);

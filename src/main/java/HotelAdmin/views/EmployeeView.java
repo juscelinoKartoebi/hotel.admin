@@ -24,13 +24,13 @@ public class EmployeeView {
 
     public void registerEmployee() {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Please enter your name");
+            System.out.println("Please enter employee name");
             String name = scanner.next();
-            System.out.println("Please enter your last name");
+            System.out.println("Please enter employee last name");
             String lastName = scanner.next();
-            System.out.println("Please enter your phone number");
+            System.out.println("Please enter employee phone number");
             String phoneNumber = scanner.next();
-            System.out.println("Please enter your adress");
+            System.out.println("Please enter employee adress");
             String adress = scanner.next();
 
             List<EmployeeRole> employeeRoleList = employeeRoleService.retrieveList();
@@ -39,7 +39,7 @@ public class EmployeeView {
                     System.out.println("Type 1 " + "for " + employeeRoleList.get(i).getRole());
                     continue;
                 }
-                System.out.println("Type " + (i + 1) + "for " + employeeRoleList.get(i).getRole());
+                System.out.println("Type " + (i + 1) + " for " + employeeRoleList.get(i).getRole());
             }
             System.out.println("Please select a role");
             int role = scanner.nextInt();
@@ -51,7 +51,7 @@ public class EmployeeView {
                     System.out.println("Type 1 " + "for " + hotelInfoList.get(i).getHotelName());
                     continue;
                 }
-                System.out.println("Type " + (i + 1) + "for " + hotelInfoList.get(i).getHotelName());
+                System.out.println("Type " + (i + 1) + " for " + hotelInfoList.get(i).getHotelName());
             }
             System.out.println("Please select a hotel");
             int hotel = scanner.nextInt();
@@ -68,9 +68,9 @@ public class EmployeeView {
 
     public void findEmployeeUsingNameAndLastName() {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.print("Please enter your name: ");
+            System.out.print("Please enter employee name: ");
             String name = scanner.next();
-            System.out.print("Please enter your last name: ");
+            System.out.print("Please enter employee lastname: ");
             String lastName = scanner.next();
 
             Employee employeeByNameAndLastName = employeeService.findEmployeeByNameAndLastName(name, lastName);
@@ -85,7 +85,7 @@ public class EmployeeView {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter employee name");
             String name = scanner.next();
-            System.out.println("Please enter employee last name");
+            System.out.println("Please enter employee lastname");
             String lastName = scanner.next();
 
             int employeeByNameAndLastName = employeeService.deleteEmployee(name, lastName);
@@ -99,15 +99,15 @@ public class EmployeeView {
 
     public void updateEmpl() {
         try (Scanner scanner = new Scanner(System.in)) {
-            System.out.println("Please enter your name");
+            System.out.println("Please enter employee name");
             String name = scanner.next();
-            System.out.println("Please enter your last name");
+            System.out.println("Please enter employee lastname");
             String lastName = scanner.next();
 
             Employee employeeByNameAndLastName = employeeService.findEmployeeByNameAndLastName(name, lastName);
             System.out.println("Please enter new name");
             String newName = scanner.next();
-            System.out.println("Please enter new last name");
+            System.out.println("Please enter new lastname");
             String newLastName = scanner.next();
 
             employeeByNameAndLastName.setName(newName);
