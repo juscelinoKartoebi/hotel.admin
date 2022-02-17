@@ -1,6 +1,7 @@
 package HotelAdmin.Dao;
 
 import HotelAdmin.entities.Booking;
+import HotelAdmin.entities.Employee;
 import HotelAdmin.entities.Guest;
 
 import javax.persistence.EntityManager;
@@ -39,5 +40,11 @@ public class GuestDao {
         Guest guest = query.setParameter("name", name).setParameter("lastName", lastName).getSingleResult();
         entityManager.getTransaction().commit();
         return guest;
+    }
+    public Guest updateGuest(Guest guest) {
+        entityManager.getTransaction().begin();
+        Guest guestU = entityManager.merge(guest);
+        entityManager.getTransaction().commit();
+        return guestU;
     }
 }

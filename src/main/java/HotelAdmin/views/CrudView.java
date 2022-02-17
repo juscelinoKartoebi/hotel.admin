@@ -25,6 +25,7 @@ public class CrudView {
     BookingView bookingView = new BookingView(bookingService, guestService);
     GuestView guestView = new GuestView(guestService);
     BillingView billingView = new BillingView(billingService);
+//    RoomView roomView = new RoomView(roo);
 
     public void crudHandelingen(){
         System.out.println(" Press #1.Register employee      Press #2.Search employee       Press #3.Update employee       Press #4. Delete employee");
@@ -32,6 +33,7 @@ public class CrudView {
         System.out.println(" Press #9.Insert new role        Press #10.Search up a role     Press #11.Update a role        Press #12.Delete a role");
         System.out.println(" Press #13.Insert new booking    Press #14.Search a booking     Press #15.Update a booking     Press #16.Delete booking");
         System.out.println(" Press #17.Write new bill        Press #18.Retrieve bill        Press #19.Update bill          Press #20.Delete bill");
+        System.out.println(" Press #21.Retrieve all Room_bookings");
     Scanner scan1 = new Scanner(System.in);
     int choice = scan1.nextInt();
         switch(choice) {
@@ -42,10 +44,10 @@ public class CrudView {
                 employeeView.findEmployeeUsingNameAndLastName();
                 break;
             case 3:
-                employeeView.deleteEmployee();
+                employeeView.updateEmpl();
                 break;
             case 4:
-                employeeView.updateEmpl();
+                employeeView.deleteEmployee();
                 break;
             case 5:
                 guestView.registerGuest();
@@ -54,7 +56,7 @@ public class CrudView {
                 guestView.findEmployeeUsingNameAndLastName();
                 break;
             case 7:
-                System.out.println("fix me");
+                guestView.updateGuestU();
                 break;
             case 8:
                 guestView.deleteGuest();
@@ -70,6 +72,10 @@ public class CrudView {
                 break;
             case 17:
                 billingView.registerBill();
+                break;
+            case 21:
+                RoomView roomView = new RoomView();
+                roomView.getAllRooms();
                 break;
         }
     }

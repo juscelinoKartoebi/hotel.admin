@@ -19,19 +19,21 @@ public class Room {
     private String roomLocation;
     @Column (name = "number_of_beds")
     private Long numberOfBeds;
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn (name = "hotel_id")
-    private HotelInfo hotelInfo;
+//    @ManyToOne(fetch = FetchType.LAZY)
+//    @JoinColumn (name = "hotel_id")
+//    private HotelInfo hotelInfo;
     @ManyToMany
     @JoinTable(name = "room_booking",
-    joinColumns = {@JoinColumn(name = "room_number")}, inverseJoinColumns = {@JoinColumn (name = "booking_number")})
+    joinColumns = {@JoinColumn(name = "room_number")},
+            inverseJoinColumns =
+                    {@JoinColumn (name = "booking_number")})
     private Set<Booking> booking;
 
-    public Room(String roomType, String roomLocation, HotelInfo hotelInfo, Set<Booking> booking) {
+    public Room(String roomType, String roomLocation,Long numberOfBeds,/* HotelInfo hotelInfo,*/ Set<Booking> booking) {
         this.roomType = roomType;
         this.roomLocation = roomLocation;
         this.numberOfBeds = numberOfBeds;
-        this.hotelInfo = hotelInfo;
+//        this.hotelInfo = hotelInfo;
         this.booking = booking;
     }
 
@@ -62,12 +64,12 @@ public class Room {
     public void setNumberOfBeds(Long numberOfBeds) {
         this.numberOfBeds = numberOfBeds;
     }
-    public HotelInfo gethotelInfo() {
-        return hotelInfo;
-    }
-    public void setHotelId(HotelInfo hotelInfo) {
-        this.hotelInfo = hotelInfo;
-    }
+//    public HotelInfo gethotelInfo() {
+//        return hotelInfo;
+//    }
+//    public void setHotelId(HotelInfo hotelInfo) {
+//        this.hotelInfo = hotelInfo;
+//    }
 
     @Override
     public String toString() {
@@ -75,7 +77,7 @@ public class Room {
                 "\n \t roomType=" + roomType +
                 "\n \t roomLocation = " + roomLocation +
                 "\n \t numberOfBeds = " + numberOfBeds +
-                "\n \t hotelInfo = " + hotelInfo +
+//                "\n \t hotelInfo = " + hotelInfo +
                 "\n \t booking = " + booking;
     }
 }

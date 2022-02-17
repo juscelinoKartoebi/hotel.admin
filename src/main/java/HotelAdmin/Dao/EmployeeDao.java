@@ -53,17 +53,6 @@ public class EmployeeDao {
         entityManager.getTransaction().commit();
         return employeeListList;
     }
-
-    //    public int updateEmployee (Employee employee) {
-//        entityManager.getTransaction().begin();
-//        Query query = entityManager.createQuery("update Employee e set e.name = :name where e.emplId = :emplId");
-//        query.setParameter("emplId", employee.getEmplId());
-//        query.setParameter("name", employee.getName());
-//        int rowsupdated = query.executeUpdate();
-//        System.out.println("entities updated: " + rowsupdated);
-//        entityManager.getTransaction().commit();
-//        return rowsupdated;
-//    }
     public Employee updateEmployee(Employee employee) {
         entityManager.getTransaction().begin();
         Employee empl = entityManager.merge(employee);

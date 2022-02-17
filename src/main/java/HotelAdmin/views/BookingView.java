@@ -16,7 +16,8 @@ public class BookingView {
         this.bookingService = bookingService;
         this.guestService = guestService;
     }
-    public void registerBooking(){
+
+    public void registerBooking() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter checkIn date ");
             LocalDate checkInDate = LocalDate.parse(scanner.next());
@@ -43,7 +44,8 @@ public class BookingView {
             e.printStackTrace();
         }
     }
-    public void findbooking(){
+
+    public void findbooking() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter date of booking");
             LocalDate bookingDate = LocalDate.parse(scanner.next());
@@ -55,5 +57,5 @@ public class BookingView {
             e.printStackTrace();
         }
     }
-    }
+}
 

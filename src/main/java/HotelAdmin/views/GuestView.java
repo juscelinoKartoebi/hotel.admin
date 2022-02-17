@@ -31,7 +31,8 @@ public class GuestView {
             e.printStackTrace();
         }
     }
-    public void findEmployeeUsingNameAndLastName(){
+
+    public void findEmployeeUsingNameAndLastName() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter guest name");
             String name = scanner.next();
@@ -45,7 +46,8 @@ public class GuestView {
             e.printStackTrace();
         }
     }
-    public void deleteGuest(){
+
+    public void deleteGuest() {
         try (Scanner scanner = new Scanner(System.in)) {
             System.out.println("Please enter guest name");
             String name = scanner.next();
@@ -58,6 +60,28 @@ public class GuestView {
         } catch (Exception e) {
             e.printStackTrace();
 
+        }
+    }
+
+    public void updateGuestU() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Please enter guest name");
+            String name = scanner.next();
+            System.out.println("Please enter guest lastname");
+            String lastName = scanner.next();
+
+            Guest guestByName = guestService.findGuest(name, lastName);
+            System.out.println("Please enter new name");
+            String newName = scanner.next();
+            System.out.println("Please enter new lastname");
+            String newLastName = scanner.next();
+
+            guestByName.setName(newName);
+            guestByName.setLastName(newLastName);
+            Guest guest = guestService.updateGuest(guestByName);
+            System.out.println(guest);
+        } catch (Exception e) {
+            e.printStackTrace();
         }
     }
 }

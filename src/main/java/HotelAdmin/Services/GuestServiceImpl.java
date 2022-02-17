@@ -18,15 +18,19 @@ public class GuestServiceImpl implements GuestService {
         Guest savedGuest = guestDao.insert(guest);
         return savedGuest;
     }
-
     @Override
     public Guest findGuest(String name, String lastName) {
         return guestDao.findByGuestName(name, lastName);
     }
-
     @Override
     public Guest deleteGuest(String name, String lastName) {
         Guest foundDeletedGuest = guestDao.findByGuestName(name, lastName);
         return foundDeletedGuest;
+    }
+
+    @Override
+    public Guest updateGuest(Guest guest) {
+        Guest guestU = guestDao.updateGuest(guest);
+        return guestU;
     }
 }

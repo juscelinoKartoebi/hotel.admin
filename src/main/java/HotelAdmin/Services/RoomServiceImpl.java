@@ -15,8 +15,8 @@ public class RoomServiceImpl implements  RoomService{
     }
 
     @Override
-    public Room insertRoom(String roomType, String roomLocation, Long numberOfBeds, HotelInfo hotelInfo, Set<Booking> booking) {
-        Room room = new Room(roomType, roomLocation, hotelInfo, booking);
+    public Room insertRoom(String roomType, String roomLocation, Long numberOfBeds, /*HotelInfo hotelInfo,*/ Set<Booking> booking) {
+        Room room = new Room(roomType, roomLocation,numberOfBeds/*, hotelInfo*/, booking);
         Room savedRoom = roomDao.insert(room);
         return savedRoom;
     }
