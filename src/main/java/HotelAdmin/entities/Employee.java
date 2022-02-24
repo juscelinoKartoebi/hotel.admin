@@ -21,8 +21,9 @@ public class Employee {
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "hotel_id")
     private HotelInfo hotelInfo;
-    @OneToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     private EmployeeRole employeeRole;
+
 
     public Employee(String name, String lastName, String phone, String adress, HotelInfo hotelInfo, EmployeeRole employeeRole) {
         this.name = name;
@@ -34,7 +35,6 @@ public class Employee {
     }
 
     public Employee() {
-
     }
 
     public Long getEmplId() {

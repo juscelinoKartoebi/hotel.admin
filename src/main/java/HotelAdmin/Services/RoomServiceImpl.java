@@ -5,6 +5,7 @@ import HotelAdmin.entities.Booking;
 import HotelAdmin.entities.HotelInfo;
 import HotelAdmin.entities.Room;
 
+import java.util.List;
 import java.util.Set;
 
 public class RoomServiceImpl implements  RoomService{
@@ -19,5 +20,11 @@ public class RoomServiceImpl implements  RoomService{
         Room room = new Room(roomType, roomLocation,numberOfBeds/*, hotelInfo*/, booking);
         Room savedRoom = roomDao.insert(room);
         return savedRoom;
+    }
+
+    @Override
+    public List<Room> retrieveRoom() {
+        List<Room> roomList = roomDao.retrieveRoomList();
+        return roomList;
     }
 }

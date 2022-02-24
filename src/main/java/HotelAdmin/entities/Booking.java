@@ -47,7 +47,7 @@ public class Booking {
 
     @Override
     public String toString() {
-        return "Booking: " +
+        return " \n Booking: " +
                 "\n \t checkInDate = " + checkInDate +
                 "\n \t checkOutDate = " + checkOutDate +
                 "\n \t Status = " + Status +

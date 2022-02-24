@@ -109,9 +109,15 @@ public class EmployeeView {
             String newName = scanner.next();
             System.out.println("Please enter new lastname");
             String newLastName = scanner.next();
+            System.out.println("Please enter new phone number");
+            String newNumber = scanner.next();
+            System.out.println("Please enter new adress");
+            String newAdress = scanner.next();
 
             employeeByNameAndLastName.setName(newName);
             employeeByNameAndLastName.setLastName(newLastName);
+            employeeByNameAndLastName.setPhone(newNumber);
+            employeeByNameAndLastName.setAdress(newAdress);
             Employee employee = employeeService.updateEmpl(employeeByNameAndLastName);
             System.out.println(employee);
         } catch (Exception e) {

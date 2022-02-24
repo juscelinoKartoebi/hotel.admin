@@ -1,10 +1,14 @@
 package HotelAdmin.Dao;
 
 import HotelAdmin.entities.Billing;
+import HotelAdmin.entities.EmployeeRole;
+import HotelAdmin.entities.Guest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
+import java.time.LocalDate;
+import java.util.List;
 
 public class BillingDao {
     private EntityManager entityManager;
@@ -28,12 +32,13 @@ public class BillingDao {
         entityManager.getTransaction().commit();
         return rowsDeleted;
     }
-    public Billing findByBillingBumber(Long billingNumber) {
+    public Billing findByDate(LocalDate paymentDate) {
         entityManager.getTransaction().begin();
-        String jpql = "select b from Billing b where b.billingNumber = :billingNumber";
+        String jpql = "select b from Billing b where b.paymentDate = :paymentDate";
         TypedQuery<Billing> query = entityManager.createQuery(jpql, Billing.class);
-        Billing billing = query.setParameter("billingNumber", billingNumber).getSingleResult();
+        Billing billing = query.setParameter("paymentDate", paymentDate).getSingleResult();
         entityManager.getTransaction().commit();
         return billing;
     }
+
 }

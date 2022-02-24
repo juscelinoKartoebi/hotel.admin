@@ -1,18 +1,22 @@
 package HotelAdmin.views;
 
 import HotelAdmin.Services.BillingService;
+import HotelAdmin.Services.GuestService;
 import HotelAdmin.entities.Billing;
-import HotelAdmin.entities.Employee;
+import HotelAdmin.entities.EmployeeRole;
+import HotelAdmin.entities.Guest;
 
 import java.time.LocalDate;
-import java.util.Date;
+import java.util.List;
 import java.util.Scanner;
 
 public class BillingView {
     private final BillingService billingService;
+    private final GuestService guestService;
 
-    public BillingView(BillingService billingService) {
+    public BillingView(BillingService billingService, GuestService guestService) {
         this.billingService = billingService;
+        this.guestService = guestService;
     }
 
     public void registerBill() {
@@ -22,7 +26,19 @@ public class BillingView {
             System.out.println("Please enter payment date");
             LocalDate paymentDate = LocalDate.parse(scanner.next());
 
-            Billing insertedBill = billingService.insertBill(roomCharge, paymentDate);
+            List<Guest> guestList = guestService.retrieveGuest();
+            for (int i = 0; i < guestList.size(); i++) {
+                if (i == 0) {
+                    System.out.println("Type 1 " + "for " + guestList.get(i).getName());
+                    continue;
+                }
+                System.out.println("Type " + (i + 1) + " for " + guestList.get(i).getName());
+            }
+            System.out.println("Please select a guest");
+            int guestPick = scanner.nextInt();
+            Guest guest = guestList.get(guestPick == 1 ? 0 : guestPick);
+
+            Billing insertedBill = billingService.insertBill(roomCharge, paymentDate, guest);
             System.out.println(insertedBill);
 
         } catch (Exception e) {

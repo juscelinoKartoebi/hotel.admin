@@ -6,6 +6,7 @@ import HotelAdmin.entities.Booking;
 import HotelAdmin.entities.Guest;
 
 import java.time.LocalDate;
+import java.util.List;
 import java.util.Scanner;
 
 public class BookingView {
@@ -57,5 +58,34 @@ public class BookingView {
             e.printStackTrace();
         }
     }
-}
 
+    public void findBookingsByKwartaal() {
+        try (Scanner scanner = new Scanner(System.in)) {
+            System.out.println("Please enter the year");
+            Integer year = scanner.nextInt();
+            System.out.println("Please enter a quarter");
+            Integer period = scanner.nextInt();
+            List<Booking> bookings = bookingService.findBookingsByKwartaal(year, period);
+            for(Booking booking : bookings){
+                System.out.println(booking.toString());
+            }
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+    public void findBookingsByYear(){
+        {
+            try (Scanner scanner = new Scanner(System.in)) {
+                System.out.println("Please enter the year");
+                Integer year = scanner.nextInt();
+                List<Booking> bookings = bookingService.findBookingsByYear(year);
+                for(Booking booking : bookings){
+                    System.out.println(booking.toString());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+    }
+
+}

@@ -6,7 +6,9 @@ import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.List;
 
 public class BookingDao {
         private EntityManager entityManager;
@@ -36,5 +38,24 @@ public class BookingDao {
             Booking booking = query.setParameter("bookingDate", bookingDate).getSingleResult();
             entityManager.getTransaction().commit();
             return booking;
+        }
+        public List<Booking> findBookingsByKwartaal(Integer year, Integer period){
+            entityManager.getTransaction().begin();
+            String jpql = "select b from Booking b where year(b.bookingDate) = :year AND quarter(b.bookingDate) in : period";
+            Query query = entityManager.createQuery(jpql, Booking.class);
+            query.setParameter("year", year);
+            query.setParameter("period", period);
+            List<Booking> bookingList = query.getResultList();
+            entityManager.getTransaction().commit();
+            return bookingList;
+        }
+        public List<Booking> findBookingByYear(Integer year){
+            entityManager.getTransaction().begin();
+            String jpql = "select b from Booking b where year(b.bookingDate) = :year";
+            Query query = entityManager.createQuery(jpql, Booking.class);
+            query.setParameter("year", year);
+            List<Booking> bookingList = query.getResultList();
+            entityManager.getTransaction().commit();
+            return bookingList;
         }
 }

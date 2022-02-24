@@ -6,10 +6,10 @@ import java.util.Map;
 public class Database {
     private final Map<String, String> users;
 
+    //"Database" voor de opslag van credentails
     public Database() {
         users = new HashMap<>();
-        users.put("admin_username", "admin_password");
-        users.put("user_username", "user_password");
+        users.put("robert", "robert");
         users.put("lino", "lino");
     }
     public boolean isValidUser(String username) {

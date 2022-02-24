@@ -13,7 +13,7 @@ public class Applicatie {
 //---------------------------------------------------------------------------------->
 //        ChainOfResponsibility
         ChainOfResponsibilityView chain = new ChainOfResponsibilityView();
-        chain.getChain();
+//        chain.getChain();
 
 //---------------------------------------------------------------------------------->
 //        CrudHandelingen

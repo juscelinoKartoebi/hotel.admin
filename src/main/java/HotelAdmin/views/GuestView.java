@@ -1,13 +1,18 @@
 package HotelAdmin.views;
 
+import HotelAdmin.Configurations.JpaConfiguratie;
+import HotelAdmin.Dao.GuestDao;
 import HotelAdmin.Services.GuestService;
 import HotelAdmin.entities.Employee;
 import HotelAdmin.entities.Guest;
+import HotelAdmin.entities.Room;
 
+import java.util.List;
 import java.util.Scanner;
 
 public class GuestView {
     private final GuestService guestService;
+    GuestDao guestDao = new GuestDao(JpaConfiguratie.getEntityManager());
 
     public GuestView(GuestService guestService) {
         this.guestService = guestService;
@@ -75,13 +80,25 @@ public class GuestView {
             String newName = scanner.next();
             System.out.println("Please enter new lastname");
             String newLastName = scanner.next();
+            System.out.println("PLease enter new Adress");
+            String newAdress = scanner.next();
+            System.out.println("please enter new Phone");
+            String newPhone = scanner.next();
 
             guestByName.setName(newName);
             guestByName.setLastName(newLastName);
+            guestByName.setAdress(newAdress);
+            guestByName.setPhone(newPhone);
             Guest guest = guestService.updateGuest(guestByName);
-            System.out.println(guest);
+            System.out.println("Updated " + guest);
         } catch (Exception e) {
             e.printStackTrace();
+        }
+    }
+    public  void getAllGuests() {
+        List<Guest> guestList = guestDao.retrieveListOfGuest();
+        for (Guest guest : guestList) {
+            System.out.println(guest);
         }
     }
 }

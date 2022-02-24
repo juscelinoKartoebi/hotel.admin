@@ -9,7 +9,7 @@ package HotelAdmin.Patterns.Decorator;
 
         }
         public double getCost(){
-            System.out.println("Cost of Pool card: " + 10.35);
+            System.out.println("Cost of Pool card: $" + 10.35);
             return tempRoom.getCost() + 10.35;
         }
     }

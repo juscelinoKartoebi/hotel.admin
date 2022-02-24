@@ -5,6 +5,7 @@ import HotelAdmin.entities.Booking;
 import HotelAdmin.entities.Guest;
 
 import java.time.LocalDate;
+import java.util.List;
 
 public class BookingServiceImpl implements BookingService {
     private final BookingDao bookingDao;
@@ -27,6 +28,16 @@ public class BookingServiceImpl implements BookingService {
     @Override
     public Booking findBooking(LocalDate bookinDate) {
         return bookingDao.findByBookingDate(bookinDate);
+    }
+
+    @Override
+    public List<Booking> findBookingsByKwartaal(Integer year, Integer period) {
+        return bookingDao.findBookingsByKwartaal(year, period);
+    }
+
+    @Override
+    public List<Booking> findBookingsByYear(Integer year) {
+        return bookingDao.findBookingByYear(year);
     }
 
 }

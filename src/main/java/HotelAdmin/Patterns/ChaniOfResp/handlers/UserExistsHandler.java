@@ -8,6 +8,7 @@ public class UserExistsHandler extends Handler {
     public UserExistsHandler(Database database) {
         this.database = database;
     }
+    //checked of de user bestaat in de database, zoniet melden om te registreren
     @Override
     public boolean handle(String username, String password) {
         if (!database.isValidUser(username)) {

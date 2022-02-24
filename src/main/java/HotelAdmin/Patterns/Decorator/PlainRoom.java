@@ -2,6 +2,7 @@ package HotelAdmin.Patterns.Decorator;
 
 public class PlainRoom implements Room {
 
+    //dit is gewoon een basic room
     public String getDescription() {
         return "Room";
     }

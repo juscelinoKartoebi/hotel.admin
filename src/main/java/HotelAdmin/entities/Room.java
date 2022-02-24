@@ -74,10 +74,12 @@ public class Room {
     @Override
     public String toString() {
         return "Room: " +
-                "\n \t roomType=" + roomType +
+                "\n \t roomType= " + roomType +
                 "\n \t roomLocation = " + roomLocation +
                 "\n \t numberOfBeds = " + numberOfBeds +
 //                "\n \t hotelInfo = " + hotelInfo +
-                "\n \t booking = " + booking;
+                "\n " + booking + "\n" +
+                "------------------------------------------------------------------";
+
     }
 }
