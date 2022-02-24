@@ -9,7 +9,6 @@ public class LuxuriousRoom implements RoomPackage {
     public String getValuta() {
         return "Price of room: $" + getPriceOfRoom();
     }
-
     @Override
     public String getPriceOfRoom() {
         return String.valueOf(500);

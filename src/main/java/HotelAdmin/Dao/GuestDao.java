@@ -2,12 +2,14 @@ package HotelAdmin.Dao;
 
 import HotelAdmin.entities.Booking;
 import HotelAdmin.entities.Employee;
+import HotelAdmin.entities.EmployeeRole;
 import HotelAdmin.entities.Guest;
 
 import javax.persistence.EntityManager;
 import javax.persistence.Query;
 import javax.persistence.TypedQuery;
 import java.util.Date;
+import java.util.List;
 
 public class GuestDao {
     private EntityManager entityManager;
@@ -46,5 +48,13 @@ public class GuestDao {
         Guest guestU = entityManager.merge(guest);
         entityManager.getTransaction().commit();
         return guestU;
+    }
+    public List<Guest> retrieveListOfGuest() {
+        entityManager.getTransaction().begin();
+        String jpql = "select g from Guest g";
+        TypedQuery<Guest> query = entityManager.createQuery(jpql, Guest.class);
+        List<Guest> guestList = query.getResultList();
+        entityManager.getTransaction().commit();
+        return guestList;
     }
 }

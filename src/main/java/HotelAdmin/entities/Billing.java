@@ -15,13 +15,14 @@ public class Billing {
     private Double roomCharge;
     @Column(name = "payment_date")
     private LocalDate paymentDate;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @OneToOne
     @JoinColumn (name = "guest_id")
     private Guest guest;
 
-    public Billing(Double roomCharge, LocalDate paymentDate) {
+    public Billing(Double roomCharge, LocalDate paymentDate, Guest guest) {
         this.roomCharge = roomCharge;
         this.paymentDate = paymentDate;
+        this.guest = guest;
     }
     public Billing() {
     }

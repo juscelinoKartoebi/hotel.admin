@@ -24,7 +24,7 @@ public class CrudView {
     EmployeeRoleView employeeRoleView = new EmployeeRoleView(roleService);
     BookingView bookingView = new BookingView(bookingService, guestService);
     GuestView guestView = new GuestView(guestService);
-    BillingView billingView = new BillingView(billingService);
+    BillingView billingView = new BillingView(billingService, guestService);
 //    RoomView roomView = new RoomView(roo);
 
     public void crudHandelingen(){

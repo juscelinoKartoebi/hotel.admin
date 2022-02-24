@@ -4,6 +4,8 @@ import HotelAdmin.Dao.GuestDao;
 import HotelAdmin.entities.Employee;
 import HotelAdmin.entities.Guest;
 
+import java.util.List;
+
 public class GuestServiceImpl implements GuestService {
     private final GuestDao guestDao;
 
@@ -32,5 +34,11 @@ public class GuestServiceImpl implements GuestService {
     public Guest updateGuest(Guest guest) {
         Guest guestU = guestDao.updateGuest(guest);
         return guestU;
+    }
+
+    @Override
+    public List<Guest> retrieveList() {
+        List<Guest> guestList = guestDao.retrieveListOfGuest();
+        return guestList;
     }
 }
