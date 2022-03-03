@@ -57,4 +57,13 @@ public class GuestDao {
         entityManager.getTransaction().commit();
         return guestList;
     }
+    public List<Guest> retrieveListGuestByDistrict(String distr){
+        entityManager.getTransaction().begin();
+        String jpql = "select g from Guest g where g.district = :distr";
+        Query query = entityManager.createQuery(jpql, Guest.class);
+        query.setParameter("distr", distr);
+        List<Guest> guestList = query.getResultList();
+        entityManager.getTransaction().commit();
+        return guestList;
+    }
 }

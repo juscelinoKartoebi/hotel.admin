@@ -14,9 +14,9 @@ public class GuestServiceImpl implements GuestService {
     }
 
     @Override
-    public Guest insertGuest(String name, String lastName, String phone, String adress) {
+    public Guest insertGuest(String name, String lastName, String phone, String adress, String district) {
 
-        Guest guest = new Guest(name, lastName, phone, adress);
+        Guest guest = new Guest(name, lastName, phone, adress, district);
         Guest savedGuest = guestDao.insert(guest);
         return savedGuest;
     }
@@ -35,9 +35,15 @@ public class GuestServiceImpl implements GuestService {
         Guest guestU = guestDao.updateGuest(guest);
         return guestU;
     }
+
     @Override
-    public List<Guest> retrieveGuest() {
+    public List<Guest> retrieveList() {
         List<Guest> guestList = guestDao.retrieveListOfGuest();
         return guestList;
+    }
+
+    @Override
+    public List<Guest> findGuestsByDistricts(String distr) {
+        return guestDao.retrieveListGuestByDistrict(distr);
     }
 }

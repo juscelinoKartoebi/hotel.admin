@@ -3,6 +3,7 @@ package HotelAdmin.views;
 import HotelAdmin.Configurations.JpaConfiguratie;
 import HotelAdmin.Dao.GuestDao;
 import HotelAdmin.Services.GuestService;
+import HotelAdmin.entities.Booking;
 import HotelAdmin.entities.Employee;
 import HotelAdmin.entities.Guest;
 import HotelAdmin.entities.Room;
@@ -28,8 +29,10 @@ public class GuestView {
             String phone = scanner.next();
             System.out.println("Please enter guest adress");
             String adress = scanner.next();
+            System.out.println("Please fill in a district");
+            String district = scanner.next();
 
-            Guest insertedGuest = guestService.insertGuest(name, lastName, phone, adress);
+            Guest insertedGuest = guestService.insertGuest(name, lastName, phone, adress, district);
             System.out.println(insertedGuest);
 
         } catch (Exception e) {
@@ -100,5 +103,20 @@ public class GuestView {
         for (Guest guest : guestList) {
             System.out.println(guest);
         }
+    }
+    public void getGuestsRapportageByDistrict(){
+        {
+            try (Scanner scanner = new Scanner(System.in)) {
+                System.out.println("Please enter the district");
+                String distr = scanner.next();
+                List<Guest> guests = guestService.findGuestsByDistricts(distr);
+                for(Guest guest : guests){
+                    System.out.println(guest.toString());
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
+
     }
 }

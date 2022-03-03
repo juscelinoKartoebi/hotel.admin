@@ -34,11 +34,11 @@ public class EmployeeView {
             String adress = scanner.next();
 
             List<EmployeeRole> employeeRoleList = employeeRoleService.retrieveList();
-            for (int i = 0; i < employeeRoleList.size(); i++) {
-                if (i == 0) {
-                    System.out.println("Type 1 " + "for " + employeeRoleList.get(i).getRole());
-                    continue;
-                }
+            for (int i = 1; i < employeeRoleList.size(); i++) {
+//                if (i == 0) {
+//                    System.out.println("Type 1 " + "for " + employeeRoleList.get(i).getRole());
+//                    continue;
+//                }
                 System.out.println("Type " + (i + 1) + " for " + employeeRoleList.get(i).getRole());
             }
             System.out.println("Please select a role");

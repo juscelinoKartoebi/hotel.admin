@@ -87,6 +87,9 @@ public class CrudView {
             case 23:
                 bookingView.findBookingsByYear();
                 break;
+            case 24:
+                guestView.getGuestsRapportageByDistrict();
+                break;
 
 
 

@@ -26,13 +26,9 @@ public class BillingView {
             System.out.println("Please enter payment date");
             LocalDate paymentDate = LocalDate.parse(scanner.next());
 
-            List<Guest> guestList = guestService.retrieveGuest();
-            for (int i = 0; i < guestList.size(); i++) {
-                if (i == 0) {
-                    System.out.println("Type 1 " + "for " + guestList.get(i).getName());
-                    continue;
-                }
-                System.out.println("Type " + (i + 1) + " for " + guestList.get(i).getName());
+            List<Guest> guestList = guestService.retrieveList();
+            for (int i = 1; i < guestList.size(); i++) {
+                System.out.println("Type " + (i) + " for " + guestList.get(i).getName());
             }
             System.out.println("Please select a guest");
             int guestPick = scanner.nextInt();

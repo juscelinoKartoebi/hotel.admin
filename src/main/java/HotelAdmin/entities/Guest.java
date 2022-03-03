@@ -1,11 +1,14 @@
 package HotelAdmin.entities;
 
+import com.sun.istack.NotNull;
+
 import javax.persistence.*;
 
 @Entity
 @Table(name = "guest")
 public class Guest {
     @Id
+    @NotNull
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "guest_id")
     private Long guestId;
@@ -17,12 +20,15 @@ public class Guest {
     private String phone;
     @Column(name = "adress")
     private String adress;
+    @Column(name = "district")
+    private String district;
 
-    public Guest(String name, String lastName, String phone, String adress) {
+    public Guest(String name, String lastName, String phone, String adress, String district) {
         this.name = name;
         this.lastName = lastName;
         this.phone = phone;
         this.adress = adress;
+        this.district = district;
     }
 
     public Guest() {
@@ -68,12 +74,21 @@ public class Guest {
         this.adress = adress;
     }
 
+    public String getDistrict() {
+        return district;
+    }
+    public void setDistrict(String district) {
+        this.district = district;
+    }
+
     @Override
     public String toString() {
         return "Guest info: " +
                 "\n \t name = " + name +
                 "\n \t lastName = " + lastName +
                 "\n \t phone = " + phone +
-                "\n \t adress = " + adress + "\n";
+                "\n \t adress = " + adress +
+                "\n \t district= " + district +
+                "\n";
     }
 }
