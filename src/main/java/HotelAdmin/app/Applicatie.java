@@ -18,12 +18,12 @@ public class Applicatie {
 //---------------------------------------------------------------------------------->
 //        CrudHandelingen
         CrudView crudView = new CrudView();
-        crudView.crudHandelingen();
+//        crudView.crudHandelingen();
 
 //---------------------------------------------------------------------------------->
 //    FactoryPattern
         PatternView patternView = new PatternView();
-//        patternView.factoryPattern();
+        patternView.factoryPattern();
 
 //---------------------------------------------------------------------------------->
         JpaConfiguratie.shutdown();

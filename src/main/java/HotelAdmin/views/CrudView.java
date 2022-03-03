@@ -33,7 +33,11 @@ public class CrudView {
         System.out.println(" Press #9.Insert new role        Press #10.Search up a role     Press #11.Update a role        Press #12.Delete a role");
         System.out.println(" Press #13.Insert new booking    Press #14.Search a booking     Press #15.Update a booking     Press #16.Delete booking");
         System.out.println(" Press #17.Write new bill        Press #18.Retrieve bill        Press #19.Update bill          Press #20.retrieve all guests info");
-        System.out.println(" Press #21.Retrieve all Room_bookings");
+//        System.out.println(" Press #21.Retrieve all Room_bookings");
+        System.out.println(" Press #22.Rapportage van boekingen per kwartaal");
+        System.out.println(" Press #23.Rapportage van boekingen op jaarbasis");
+        System.out.println(" Press #24.Rapportage van guests per district");
+
     Scanner scan1 = new Scanner(System.in);
     int choice = scan1.nextInt();
         switch(choice) {

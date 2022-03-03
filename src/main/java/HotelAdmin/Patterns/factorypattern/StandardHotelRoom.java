@@ -4,7 +4,7 @@ public class StandardHotelRoom implements RoomPackage {
 
     @Override
     public void loadRoomPackage() {
-        System.out.println(" Room with a queen-size bed:\n " + getValuta());
+        System.out.println(" Room with a two persons bed:\n " + getValuta());
     }
     @Override
     public String getValuta() {

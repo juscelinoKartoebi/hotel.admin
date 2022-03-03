@@ -2,7 +2,7 @@ package HotelAdmin.Patterns.ChaniOfResp;
 
 import java.util.HashMap;
 import java.util.Map;
-
+//behavorial
 public class Database {
     private final Map<String, String> users;
 

@@ -39,7 +39,7 @@ public class EmployeeView {
 //                    System.out.println("Type 1 " + "for " + employeeRoleList.get(i).getRole());
 //                    continue;
 //                }
-                System.out.println("Type " + (i + 1) + " for " + employeeRoleList.get(i).getRole());
+                System.out.println("Type " + (i) + " for " + employeeRoleList.get(i).getRole());
             }
             System.out.println("Please select a role");
             int role = scanner.nextInt();

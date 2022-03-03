@@ -1,9 +1,9 @@
 package HotelAdmin.Patterns.factorypattern;
 
 public class RoomFactory {
-
+//creational
     public RoomPackage getPackage(String roomPackage) {
-        if(roomPackage ==null){
+        if(roomPackage == null){
             return null;
         }
         if(roomPackage.equalsIgnoreCase("standard")){
